@@ -1,11 +1,35 @@
 @import '~@/styles/mixins'
 @import '~@/styles/variables'
 
+.date-header
+  display: flex
+  flex-direction: row
+
+  .single-date
+    padding: 10px 0 5px
+    border-bottom: 2px solid rgba(0,0,0,0.3)
+    width: 100%
+    text-align: center
+
+    &:first-of-type
+      color: $today-blue
+
+    p
+      margin: 0
+      line-height: 0.8em
+      font-size: 0.7em
+
+    .date
+      font-size: 2em
+      font-weight: 800
+      line-height: 0.9em
+
 .days-grid
   display: flex
   flex-direction: row
   justify-content: space-between
   box-shadow: -39px 8px 44px -63px rgba(0,0,0,0.83) inset
+
   +media('min-lg')
     min-width: 1400px
 

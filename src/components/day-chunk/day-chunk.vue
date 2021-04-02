@@ -2,22 +2,19 @@
   <div
     :class="[
       'chunk',
+      chunk.is_morning ? 'is-morning' : '',
       'weather-rating-' + chunk.weather_rating, chunk.size > 2 ? 'large-content' : '',
       chunk.size > 3 && chunk.weather_rating === 1 ? 'extra-special': ''
     ]"
     :style="{height: (chunk.size / 24 * 100) + '%'}">
     <div class="content">
-      <!-- <img class="weather-icon" :src="'http://openweathermap.org/img/wn/' + chunk.icon + '@2x.png'"> -->
       <img class="weather-icon" :src="require('./weather/' + chunk.icon + '.svg')">
       <div class="text">
-
         <p v-if="units == 'imperial'" class="temp">{{ Math.round((chunk.temp * 9/5) + 32) }}<sup>°F</sup></p>
         <p v-else class="temp">{{ chunk.temp }}<sup>°C</sup></p>
-
         <p v-if="units == 'imperial'" class="wind-pop">{{ Math.round(chunk.wind_kmh / 1.609) }} mph</p>
         <p v-else class="wind-pop">{{ chunk.wind_kmh }} km/h</p>
       </div>
-
       <div class="hour">
         <!-- Chunk spans am-pm -->
         <p v-if="(chunk.size > 1 && chunk.start < 12 && chunk.start + chunk.size > 12) || (chunk.size > 1 && chunk.start + chunk.size == 24)">

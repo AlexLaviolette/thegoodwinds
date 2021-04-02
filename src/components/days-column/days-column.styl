@@ -1,11 +1,6 @@
 @import '~@/styles/mixins'
 @import '~@/styles/variables'
 
-.days-grid
-  // Make today's date standout
-  .days-column:first-of-type .date-header
-    color: $today-blue
-
 .days-column
   height: 93vh
   display: flex
@@ -14,14 +9,10 @@
   flex-direction: column
   flex-grow: 1
 
-  // +media('lg')
-  &:nth-last-child(-n+3)
-    display: none
-
   .days
     display: flex
     width: 100%
-    height: 93vh
+    height: 150vh
     flex-direction: column
     position: relative
     min-height: 1000px
@@ -50,21 +41,21 @@
 
 
 
-.date-header
-  padding: 10px 0 5px
-  border-bottom: 2px solid rgba(0,0,0,0.3)
-  width: 100%
-  text-align: center
-  // font-family:
+// .date-header
+//   padding: 10px 0 5px
+//   border-bottom: 2px solid rgba(0,0,0,0.3)
+//   width: 100%
+//   text-align: center
+//   // font-family:
 
-  p
-    margin: 0
-    line-height: 0.8em
-    font-size: 0.7em
+//   p
+//     margin: 0
+//     line-height: 0.8em
+//     font-size: 0.7em
 
-  .date
-    font-size: 2em
-    font-weight: 800
-    line-height: 0.9em
+//   .date
+//     font-size: 2em
+//     font-weight: 800
+//     line-height: 0.9em
 
 dump_media_cache()

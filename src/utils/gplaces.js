@@ -2,7 +2,6 @@
 
 // Your personal API key.
 // Get it here: https://console.cloud.google.com/google/maps-apis
-const API_KEY = 'AIzaSyA8ehOe7Z06sUWcT14b8jk826ZKn3MQ-38';
 const CALLBACK_NAME = 'gmapsCallback';
 
 let initialized = !!window.google;
@@ -33,7 +32,7 @@ export default function init() {
   const script = document.createElement('script');
   script.async = true;
   script.defer = true;
-  script.src = `https://maps.googleapis.com/maps/api/js?key=${API_KEY}&callback=${CALLBACK_NAME}&libraries=places&v=weekly`;
+  script.src = `https://maps.googleapis.com/maps/api/js?key=${process.env.VUE_APP_GMAPS_KEY}&callback=${CALLBACK_NAME}&libraries=places&v=weekly`;
   script.onerror = rejectInitPromise;
   document.querySelector('head').appendChild(script);
 
