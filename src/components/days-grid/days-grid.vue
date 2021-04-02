@@ -30,7 +30,7 @@ export default Vue.extend({
       try {
         let lat = localStorage.lat;
         let lon = localStorage.lon;
-        let result = await this.$axios.get('http://localhost:5000/weather/chunked?start=9&lat=' + lat + '&lon=' + lon);
+        let result = await this.$axios.get(process.env.VUE_APP_API_URL + 'weather/chunked?start=9&lat=' + lat + '&lon=' + lon);
         this.chunked = result.data;
       } catch(error) {
         console.error(error);
