@@ -31,7 +31,11 @@ export default Vue.extend({
     'day-chunk': dayChunk,
   },
   created: function () {
-    this.getLocation()
+    if (!localStorage.lat || !localStorage.lon) {
+      this.$router.push({name: 'location'})
+    } else {
+      this.getLocation()
+    }
   },
   methods: {
     getLocation: async function () {
