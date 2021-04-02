@@ -1,2 +1,0 @@
-class OpenWeatherMapError(Exception):
-  pass
