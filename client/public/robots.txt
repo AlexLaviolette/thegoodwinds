@@ -1,2 +1,2 @@
 User-agent: *
-Sitemap: /sitemap_index.xml
+Sitemap: https://www.thegoodwinds.com/sitemap_index.xml
