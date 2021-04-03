@@ -11,16 +11,18 @@
   border-right: 1px solid rgba(0,0,0,0.3)
 
   &.weather-rating-1
-    background-color: lighten(#43C6F6, 10%)
+    background-color: darken(#74d5f2, 5%)
   &.weather-rating-2
-    background-color: lighten(#43C6F6, 20%)
+    background-color: lighten(#74d5f2, 50%)
   &.weather-rating-3
-    background-color: lighten(#63DFE0, 20%)
+    // background-color: lighten(#74d5f2, 20%)
+    background-color: lighten(#74d5f2, 70%)
   &.weather-rating-4
   &.weather-rating-5
-    background-color: lighten(#FDAF6F, 20%)
+    background-color: lighten(#F96975, 80%)
+    // background-color: lighten(#fff, 20%)
   &.weather-rating-6
-    background-color: lighten(#F96975, 20%)
+    background-color: lighten(#F96975, 70%)
 
   &.is-morning
     opacity: 0.8
@@ -46,37 +48,37 @@
         filter: invert(0%) sepia(0%) saturate(7484%) hue-rotate(313deg) brightness(93%) contrast(107%)
         opacity: 0.2
 
-      .text
-        position: relative
-        width: 100%
-        z-index: 1
-        top: 2em
-        flex-direction: row
-        align-items: flex-end
-        justify-content: flex-end
+      // .text
+      //   position: relative
+      //   width: 100%
+      //   z-index: 1
+      //   top: 2em
+      //   flex-direction: row
+      //   align-items: flex-end
+      //   justify-content: flex-end
 
-        p
-          font-size: 4em
+      //   p
+      //     // font-size: 4em
 
-          &.temp
-            position: relative
-            display: block
-            line-height: 0.5em
+      //     &.temp
+      //       position: relative
+      //       display: block
+      //       line-height: 0.5em
 
-          &.wind-pop
-            font-size: 0.7em
-            text-align: left
-            display: block
-            width: 100%
-            position: relative
-            // top: -35px
+      //     &.wind-pop
+      //       font-size: 0.7em
+      //       text-align: left
+      //       display: block
+      //       width: 100%
+      //       position: relative
+      //       // top: -35px
 
-          sup
-            position: absolute
-            font-size: 0.2em
-            top: 20%
-            left: 100%
-            display: block
+      //     sup
+      //       position: absolute
+      //       font-size: 0.2em
+      //       top: 20%
+      //       left: 100%
+      //       display: block
 
   .content
     display: flex
@@ -99,7 +101,7 @@
         top: -9px
 
       &.temp
-        font-size: 1.2em
+        font-size: 2em
         font-weight: 200
         line-height: 0.96em
 
