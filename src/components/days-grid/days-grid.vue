@@ -1,15 +1,17 @@
 <template>
-  <div>
+  <div class="grid">
     <div class="date-header">
       <div class="single-date" v-for="(chunks, date, i) in chunked" :key="i">
         <p class="day">{{ date | moment("ddd")}}</p>
         <p class="date">{{ date | moment("D")}}</p>
       </div>
     </div>
-    <div class="days-grid" v-if="chunked">
-      <days-column v-for="(chunks, date, i) in chunked" :date="date" :key="i">
-        <day-chunk v-for="(chunk, i) in chunks" :key="i" :chunk="chunk"></day-chunk>
-      </days-column>
+    <div class="days-grid-wrap" id="grid">
+      <div class="days-grid" v-if="chunked">
+        <days-column v-for="(chunks, date, i) in chunked" :date="date" :key="i">
+          <day-chunk v-for="(chunk, i) in chunks" :key="i" :chunk="chunk"></day-chunk>
+        </days-column>
+      </div>
     </div>
   </div>
 </template>
@@ -37,6 +39,9 @@ export default Vue.extend({
       this.getLocation()
     }
   },
+  mounted: function () {
+
+  },
   methods: {
     getLocation: async function () {
       try {
@@ -44,6 +49,10 @@ export default Vue.extend({
         let lon = localStorage.lon;
         let result = await this.$axios.get(process.env.VUE_APP_API_URL + '/weather/chunked?start=9&lat=' + lat + '&lon=' + lon);
         this.chunked = result.data;
+        this.$nextTick(() => {
+          var container = this.$el.querySelector("#grid")
+          container.scrollTop = container.scrollHeight
+        })
       } catch(error) {
         console.error(error);
       }

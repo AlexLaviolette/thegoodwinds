@@ -1,15 +1,35 @@
 @import '~@/styles/mixins'
 @import '~@/styles/variables'
 
+.grid
+  display: grid
+  height: 93vh
+  width: 100%
+  grid-template-columns: 100%
+  grid-template-rows: 8% 92%;
+
+  +media('(max-height: 800px)')
+    grid-template-rows: 10% 90%;
+    height: 87vh
+
+  +media('(max-height: 600px)')
+    grid-template-rows: 20% 80%;
+
+
 .date-header
   display: flex
   flex-direction: row
+  grid-row: 1
 
   .single-date
     padding: 10px 0 5px
     border-bottom: 2px solid rgba(0,0,0,0.3)
     width: 100%
     text-align: center
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center
 
     &:first-of-type
       color: $today-blue
@@ -24,13 +44,17 @@
       font-weight: 800
       line-height: 0.9em
 
+.days-grid-wrap
+  height: 100%
+  overflow: scroll
+  grid-row: 2
+
 .days-grid
   display: flex
+  height: 160%
+  width: 100%
   flex-direction: row
   justify-content: space-between
   box-shadow: -39px 8px 44px -63px rgba(0,0,0,0.83) inset
-
-  +media('min-lg')
-    min-width: 1400px
 
 dump_media_cache()
