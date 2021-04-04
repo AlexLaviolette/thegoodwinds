@@ -11,14 +11,12 @@
 import daysGrid from '@/components/days-grid/days-grid.vue';
 import overlay from '@/components/overlay/overlay.vue';
 import map from '@/components/map/map.vue';
-import Vue from 'vue';
 
+import Vue from 'vue';
 export default Vue.extend({
   name: 'home',
   data() {
     return {
-      today: new Date(),
-      units: 'metric'
     };
   },
   components: {

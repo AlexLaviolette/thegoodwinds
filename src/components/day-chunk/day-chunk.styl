@@ -2,12 +2,14 @@
 @import '~@/styles/variables'
 
 .chunk
+  position: relative
   width: 100%
   height: 100%
   padding: 2px
   display: flex
   justify-content: space-between
   align-items: center
+  cursor: pointer
 
   .chunk-inner
     width: 100%
@@ -15,7 +17,7 @@
     border-radius: 9px
     display: flex
     flex-direction: column
-    align-items: flex-start
+    justify-content: space-between
     border: 2px solid $white
 
     &.weather-rating-1
@@ -34,7 +36,7 @@
       background-image: url('./imgs/basket.png')
       background-repeat: no-repeat
       background-position: bottom 10% right 10%;
-      background-size: 200px
+      background-size: 120px
       overflow: hidden
 
     &.is-morning
@@ -64,12 +66,12 @@
           top: -9px
 
         &.temp
-          font-size: 2em
+          font-size: 2.5em
           font-weight: 200
           line-height: 0.96em
 
           +media('md-height')
-            font-size: 1em
+            font-size: 1.5em
 
         &.wind-pop
           margin-left: 12px
@@ -89,7 +91,7 @@
           padding: 0 5px
           margin: 0
           vertical-align: middle
-          font-size: 0.6em
+          font-size: 0.8em
 
     img.weather-icon
       height: 25px
@@ -97,5 +99,33 @@
       position: relative
       top: -1px
       margin-right: 10px
+
+  .summary
+    display: flex
+    flex-grow: 1
+    text-align: left
+    justify-content: flex-start
+    align-items: flex-start
+    position: relative
+
+    p
+      position: absolute
+      width: 100%
+      left: 5px
+      top: 0
+      margin: 0
+      opacity:0
+      font-weight: 300
+      font-size: 1em
+      transition: opacity 0.3s ease
+
+      +media('md-height')
+        font-size: 1em
+
+  &:hover
+    .summary
+      p
+        opacity: 0.7
+
 
 dump_media_cache()

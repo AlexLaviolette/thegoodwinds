@@ -36,8 +36,21 @@
           </p>
         </div>
       </div>
+      <div v-if="!chunk.is_morning && chunk.size > 1" class="summary">
+        <p v-if="chunk.size > 3 && chunk.weather_rating === 1">
+          <em>Go Play!</em>
+        </p>
+        <p v-else-if="chunk.weather_rating > 1">
+          <em>
+            {{`It's ${ratingVerb[chunk.wind_rating]} windy${comparisonLanguage(chunk.wind_rating, chunk.pop_rating)}`}}
+            {{`${ratingVerb[chunk.pop_rating]} rainy.`}}
+          </em>
+        </p>
+        <p v-else-if="chunk.size < 4">
+          <em>Only {{chunk.size}} hours of great weather</em>
+        </p>
+      </div>
     </div>
-    <!-- <div :style="{height: ((chunk.size-1) * 35) + 'px'}" class="cell"></div> -->
   </div>
 </template>
 
@@ -48,8 +61,26 @@ export default Vue.extend({
   data() {
     return {
       today: new Date(),
-      units: 'metric'
+      units: 'metric',
+      ratingVerb: {
+        '1': 'not',
+        '2': 'not that',
+        '3': 'a bit',
+        '4': 'kinda',
+        '5': 'pretty',
+        '6': 'very',
+      }
     };
+  },
+  methods: {
+    comparisonLanguage: function(wind, pop) {
+      // if (wind < 3 && pop < 3) return ' and '
+      if (wind < 3 && pop > 2) {
+        return ', but could be '
+      } else {
+        return ' and '
+      }
+    }
   },
   mounted() {
     if (localStorage.units) {
