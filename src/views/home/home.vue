@@ -12,13 +12,19 @@ import daysGrid from '@/components/days-grid/days-grid.vue';
 import overlay from '@/components/overlay/overlay.vue';
 import map from '@/components/map/map.vue';
 
-export default {
+import Vue from 'vue';
+export default Vue.extend({
+  name: 'home',
+  data() {
+    return {
+    };
+  },
   components: {
     'days-grid': daysGrid,
     'overlay': overlay,
     'map-component': map,
   },
-};
+});
 </script>
 
 <style src="./home.styl" lang="stylus"></style>

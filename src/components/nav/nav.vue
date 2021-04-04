@@ -1,10 +1,13 @@
 <template>
   <div id="nav">
     <div class="title">
-      <h1>GoodWinds</h1>
+      <router-link class="logo" :to="{name: 'home'}">GoodWinds</router-link>
       <p>The Disc-Golf weather app.</p>
     </div>
-    <router-link class="btn" :to="{name: 'location'}">Set Location</router-link>
+    <div class="links">
+      <router-link :to="{name: 'about'}">About</router-link>
+      <router-link class="btn" :to="{name: 'location'}"><span>Set </span>Location</router-link>
+    </div>
   </div>
 </template>
 

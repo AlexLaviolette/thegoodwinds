@@ -1,12 +1,18 @@
 <urlset>
   <url>
-    <loc>https://www.thegoodwinds.dev</loc>
+    <loc>https://www.thegoodwinds.com</loc>
     <lastmod>2021-04-02</lastmod>
     <priority>1</priority>
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>https://www.thegoodwinds.com/work-history</loc>
+    <loc>https://www.thegoodwinds.com/location</loc>
+    <lastmod>2021-04-02</lastmod>
+    <priority>0.9</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.thegoodwinds.com/about</loc>
     <lastmod>2021-04-02</lastmod>
     <priority>0.7</priority>
     <changefreq>weekly</changefreq>

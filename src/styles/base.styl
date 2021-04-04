@@ -5,13 +5,58 @@ body
   -webkit-font-smoothing antialiased
   -moz-osx-font-smoothing grayscale
   font-weight: 400
-  font-size: 24px
+  font-size: 18px
 
   +media('md')
     padding-top: 7vh
+    font-size: 16px
+
+  +media('xs')
+    font-size: 14px
 
   *
     box-sizing: border-box
 
   #app
     background: $bg-color
+
+  h1, .h1
+    font-size: 2.5em
+    margin: 0 0 0.5em
+
+  h2, .h2
+    font-size: 2em
+    margin: 0 0 0.2em
+
+  h3, .h3
+    font-size: 1.5em
+    margin: 0 0 0.15em
+
+  h4, .h4
+    font-size: 1.3em
+    margin: 0 0 0.1em
+
+  h5, .h5
+    font-size: 1.15em
+    margin: 0 0 0.8em
+
+  p
+    font-size: 1em
+    margin-bottom: 0.75em
+    line-height: 1.3em
+
+    a
+      color: $orange-red
+      text-decoration: none
+
+      &:hover
+        text-decoration: underline
+
+  p.sm
+    font-size: 0.8em
+
+    +media('md')
+      font-size: 0.9em
+
+    +media('xs')
+      font-size: 1em
