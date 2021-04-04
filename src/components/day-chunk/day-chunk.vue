@@ -36,16 +36,18 @@
           </p>
         </div>
       </div>
-      <div v-if="chunk.size > 1" class="summary">
-        <p v-if="chunk.weather_rating > 1">
+      <div v-if="!chunk.is_morning && chunk.size > 1" class="summary">
+        <p v-if="chunk.size > 3 && chunk.weather_rating === 1">
+          <em>Go Play!</em>
+        </p>
+        <p v-else-if="chunk.weather_rating > 1">
           <em>
             {{`It's ${ratingVerb[chunk.wind_rating]} windy${comparisonLanguage(chunk.wind_rating, chunk.pop_rating)}`}}
-            <br>
             {{`${ratingVerb[chunk.pop_rating]} rainy.`}}
           </em>
         </p>
         <p v-else-if="chunk.size < 4">
-          <em>Only {{chunk.size}} hours<br> of great weather</em>
+          <em>Only {{chunk.size}} hours of great weather</em>
         </p>
       </div>
     </div>
@@ -74,7 +76,7 @@ export default Vue.extend({
     comparisonLanguage: function(wind, pop) {
       // if (wind < 3 && pop < 3) return ' and '
       if (wind < 3 && pop > 2) {
-        return ', but '
+        return ', but could be '
       } else {
         return ' and '
       }
