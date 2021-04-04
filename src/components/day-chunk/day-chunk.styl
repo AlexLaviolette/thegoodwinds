@@ -16,6 +16,7 @@
     display: flex
     flex-direction: column
     align-items: flex-start
+
     // box-shadow: 39px -30px 44px -63px rgba(0,0,0,0.83) inset
     border: 2px solid #fff // rgba(0,0,0,0.3)
     // border-right: 1px solid rgba(0,0,0,0.3)
@@ -23,15 +24,24 @@
     &.weather-rating-1
       background-color: lighten(#43C6F6, 10%)
     &.weather-rating-2
-      background-color: lighten(#43C6F6, 20%)
+      background-color: lighten(#43C6F6, 50%)
+      // background-color: lighten(#63DFE0, 20%)
+
     &.weather-rating-3
-      background-color: lighten(#63DFE0, 20%)
+      background-color: lighten(#43C6F6, 70%)
+      // background-color: lighten(#63DFE0, 20%)
     &.weather-rating-4
     &.weather-rating-5
       background-color: lighten(#FDAF6F, 20%)
     &.weather-rating-6
       background-color: lighten(#F96975, 20%)
 
+    &.extra-special
+      background-image: url('./imgs/bg-disc.png')
+      background-repeat: no-repeat
+      background-position: top 70px right 20px;
+      background-size: 50%
+      overflow: hidden
 
     &.is-morning
       opacity: 0.8
@@ -64,10 +74,16 @@
           font-weight: 200
           line-height: 0.96em
 
+          +media('md-height')
+            font-size: 1em
+
         &.wind-pop
           margin-left: 12px
           font-weight: 600
           font-size: 0.80em
+
+          +media('md-height')
+            font-size: 0.6em
 
       div.hour
         // position: absolute
