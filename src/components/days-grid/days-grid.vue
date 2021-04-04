@@ -6,7 +6,7 @@
         <p class="date">{{ date | moment("D")}}</p>
       </div>
     </div>
-    <div class="days-grid-wrap" id="grid">
+    <div class="days-grid-wrap" id="grid-wrap">
       <div class="days-grid" v-if="chunked">
         <days-column v-for="(chunks, date, i) in chunked" :date="date" :key="i">
           <day-chunk v-for="(chunk, i) in chunks" :key="i" :chunk="chunk"></day-chunk>
@@ -50,7 +50,7 @@ export default Vue.extend({
         let result = await this.$axios.get(process.env.VUE_APP_API_URL + '/weather/chunked?start=9&lat=' + lat + '&lon=' + lon);
         this.chunked = result.data;
         this.$nextTick(() => {
-          var container = this.$el.querySelector("#grid")
+          var container = this.$el.querySelector("#grid-wrap")
           container.scrollTop = container.scrollHeight
         })
       } catch(error) {

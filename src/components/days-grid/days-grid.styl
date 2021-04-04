@@ -23,6 +23,12 @@
   grid-row: 1
   background: $light
 
+  +media('md')
+    width: 250%
+
+  +media('xs')
+    width: 350%
+
   .single-date
     padding: 10px 0 5px
     border-bottom: 2px solid rgba(0,0,0,0.3)
@@ -50,6 +56,13 @@
   height: 100%
   overflow: scroll
   grid-row: 2
+  background: $dark-queen-blue
+
+  +media('md')
+    width: 250%
+
+  +media('xs')
+    width: 350%
 
 .days-grid
   display: flex
