@@ -47,6 +47,7 @@ export default {
       // Listen for the event fired when the user selects a prediction and retrieve
       // more details for that place.
       this.searchBox.addListener("places_changed", this.placesChangeHandler)
+      this.saveLocation()
     },
     placesChangeHandler: function () {
       const places = this.searchBox.getPlaces();
@@ -91,13 +92,19 @@ export default {
       this.map.fitBounds(bounds);
     },
     saveLocation: function (places) {
-      localStorage.lat = places.geometry.location.lat();
-      localStorage.lon = places.geometry.location.lng();
-      let country = places.address_components.find((x) => x.types[0] == "country")
-      if (country && country.short_name == "US") {
-        localStorage.units = 'imperial';
+      if (places) {
+        localStorage.lat = places.geometry.location.lat();
+        localStorage.lon = places.geometry.location.lng();
+        let country = places.address_components.find((x) => x.types[0] == "country")
+        if (country && country.short_name == "US") {
+          localStorage.units = 'imperial';
+        } else {
+          localStorage.units = 'metric';
+        }
       } else {
-        localStorage.units = 'metric';
+        localStorage.lat = 43.6425662
+        localStorage.lon = -79.3892455
+        localStorage.units = 'metric'
       }
     },
     setLocation: function () {
