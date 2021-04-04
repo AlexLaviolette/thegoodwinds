@@ -8,14 +8,8 @@
   grid-template-columns: 100%
   grid-template-rows: 8% 92%
   background: $dark-queen-blue
-
-  +media('md-height')
-    grid-template-rows: 10% 90%;
-    height: 87vh
-
-  +media('sm-height')
-    grid-template-rows: 20% 80%;
-
+  +media('md')
+    margin-top: 7vh
 
 .date-header
   display: flex
@@ -45,10 +39,10 @@
     p
       margin: 0
       line-height: 0.8em
-      font-size: 0.7em
+      font-size: 0.65em
 
     .date
-      font-size: 3em
+      font-size: 2em
       font-weight: 800
       line-height: 0.9em
 
