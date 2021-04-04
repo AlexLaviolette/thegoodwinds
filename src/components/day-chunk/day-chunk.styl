@@ -3,114 +3,83 @@
 
 .chunk
   width: 100%
+  height: 100%
+  padding: 2px
   display: flex
-  flex-direction: column
-  align-items: flex-start
-  box-shadow: 39px -30px 44px -63px rgba(0,0,0,0.83) inset
-  border-bottom: 1px solid rgba(0,0,0,0.3)
-  border-right: 1px solid rgba(0,0,0,0.3)
+  justify-content: space-between
+  align-items: center
 
-  &.weather-rating-1
-    background-color: lighten(#43C6F6, 10%)
-  &.weather-rating-2
-    background-color: lighten(#43C6F6, 20%)
-  &.weather-rating-3
-    background-color: lighten(#63DFE0, 20%)
-  &.weather-rating-4
-  &.weather-rating-5
-    background-color: lighten(#FDAF6F, 20%)
-  &.weather-rating-6
-    background-color: lighten(#F96975, 20%)
+  .chunk-inner
+    width: 100%
+    height: 100%
+    border-radius: 9px
+    display: flex
+    flex-direction: column
+    align-items: flex-start
+    border: 2px solid $white
 
-  &.is-morning
-    opacity: 0.8
+    &.weather-rating-1
+      background-color: lighten(#43C6F6, 10%)
+    &.weather-rating-2
+      background-color: lighten(#43C6F6, 50%)
+    &.weather-rating-3
+      background-color: lighten(#43C6F6, 70%)
+    &.weather-rating-4
+    &.weather-rating-5
+      background-color: lighten(#FDAF6F, 20%)
+    &.weather-rating-6
+      background-color: lighten(#F96975, 20%)
 
-  &.extra-special
-    overflow: hidden
-    position: relative
+    &.extra-special
+      background-image: url('./imgs/basket.png')
+      background-repeat: no-repeat
+      background-position: bottom 10% right 10%;
+      background-size: 200px
+      overflow: hidden
+
+    &.is-morning
+      opacity: 0.8
 
     .content
-      flex-direction: column
-      justify-content: center
-      align-items: flex-start
-
-      img.weather-icon
-        position: absolute
-        top: 10%
-        left: 15%
-        width: auto
-        height: 80%
-        max-height: 212px
-        z-index: 0
-        margin: 0 0
-        filter: invert(0%) sepia(0%) saturate(7484%) hue-rotate(313deg) brightness(93%) contrast(107%)
-        opacity: 0.2
-
-      .text
-        position: relative
-        width: 100%
-        z-index: 1
-        top: 2em
-        flex-direction: row
-        align-items: flex-end
-        justify-content: flex-end
-
-        p
-          font-size: 4em
-
-          &.temp
-            position: relative
-            display: block
-            line-height: 0.5em
-
-          &.wind-pop
-            font-size: 0.7em
-            text-align: left
-            display: block
-            width: 100%
-            position: relative
-            // top: -35px
-
-          sup
-            position: absolute
-            font-size: 0.2em
-            top: 20%
-            left: 100%
-            display: block
-
-  .content
-    display: flex
-    width: 100%
-    padding: 5px 0 0 5px
-    align-items: center
-    justify-content: flex-start
-
-    .text
       display: flex
+      width: 100%
+      padding: 5px 0 0 5px
       align-items: center
       justify-content: space-between
+      .left
+        display: flex
+        justify-content: center
+        align-items: center
+      .text
+        display: flex
+        align-items: center
+        justify-content: space-between
 
-    p
-      margin: 0
+      p
+        margin: 0
 
-      sup
-        font-size: 0.5em
-        position: relative
-        top: -9px
+        sup
+          font-size: 0.5em
+          position: relative
+          top: -9px
 
-      &.temp
-        font-size: 1.2em
-        font-weight: 200
-        line-height: 0.96em
+        &.temp
+          font-size: 2em
+          font-weight: 200
+          line-height: 0.96em
 
-      &.wind-pop
-        margin-left: 12px
-        font-weight: 600
-        font-size: 0.80em
+          +media('md-height')
+            font-size: 1em
 
-    div.hour
-        position: absolute
-        right: 0
+        &.wind-pop
+          margin-left: 12px
+          font-weight: 600
+          font-size: 0.80em
+
+          +media('md-height')
+            font-size: 0.6em
+
+      div.hour
         height: 4.16%
         display: flex
         justify-content: center
@@ -122,11 +91,11 @@
           vertical-align: middle
           font-size: 0.6em
 
-  img.weather-icon
-    height: 25px
-    width: 26px
-    position: relative
-    top: -1px
-    margin-right: 10px
+    img.weather-icon
+      height: 25px
+      width: 26px
+      position: relative
+      top: -1px
+      margin-right: 10px
 
 dump_media_cache()
