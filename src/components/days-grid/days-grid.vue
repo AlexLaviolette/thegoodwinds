@@ -1,5 +1,5 @@
 <template>
-  <div class="grid">
+  <div class="grid" :class="isLoaded ? '' : 'loading'">
     <div class="date-header">
       <div class="single-date" v-for="(chunks, date, i) in chunked" :key="i">
         <p class="day">{{ date | moment("ddd")}}</p>
@@ -20,12 +20,13 @@
 import Vue from 'vue';
 import daysColumn from '@/components/days-column/days-column.vue'
 import dayChunk from '@/components/day-chunk/day-chunk.vue'
-// import response from './response.js'
+
 export default Vue.extend({
   name: 'days-grid',
   data() {
     return {
-      chunked: undefined
+      chunked: undefined,
+      isLoaded: false
     };
   },
   components: {
@@ -39,15 +40,14 @@ export default Vue.extend({
       this.getLocation()
     }
   },
-  mounted: function () {
-
-  },
   methods: {
     getLocation: async function () {
+      this.isLoaded = false
       try {
         let lat = localStorage.lat;
         let lon = localStorage.lon;
         let result = await this.$axios.get(process.env.VUE_APP_API_URL + '/weather/chunked?start=9&lat=' + lat + '&lon=' + lon);
+        this.isLoaded = true
         this.chunked = result.data;
         this.$nextTick(() => {
           var container = this.$el.querySelector("#grid-wrap")

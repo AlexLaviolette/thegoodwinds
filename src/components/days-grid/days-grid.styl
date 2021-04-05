@@ -1,15 +1,41 @@
 @import '~@/styles/mixins'
 @import '~@/styles/variables'
 
+@keyframes rotate
+  0%
+    transform: rotate(0deg)
+  100%
+    transform: rotate(360deg)
+
 .grid
   display: grid
+  position: relative
   height: 93vh
   width: 100%
   grid-template-columns: 100%
   grid-template-rows: 8% 92%
   background: $dark-queen-blue
+
   +media('md')
     margin-top: 7vh
+
+  &.loading
+
+    .date-header
+      background: $dark-queen-blue
+    &:before
+      content: ''
+      position: absolute
+      z-index: 100
+      animation: rotate 2.5s infinite linear
+      left: 0
+      top: 0
+      width: 100%
+      height: 100%
+      background-image: url('./imgs/loading.png')
+      background-size: 300px
+      background-repeat: no-repeat
+      background-position: center center
 
 .date-header
   display: flex
