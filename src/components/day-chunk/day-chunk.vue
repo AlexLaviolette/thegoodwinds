@@ -13,8 +13,8 @@
           <div class="text">
             <p v-if="units == 'imperial'" class="temp">{{ Math.round((chunk.temp * 9/5) + 32) }}<sup>°F</sup></p>
             <p v-else class="temp">{{ chunk.temp }}<sup>°C</sup></p>
-            <p v-if="units == 'imperial'" class="wind-pop">{{ Math.round(chunk.wind_kmh / 1.609) }} mph</p>
-            <p v-else class="wind-pop">{{ chunk.wind_kmh }} km/h</p>
+            <p v-if="units == 'imperial'" class="wind-pop">{{ Math.round(chunk.wind_kmh / 1.609) }} <span>mph</span></p>
+            <p v-else class="wind-pop">{{ chunk.wind_kmh }} <sub>km/h</sub></p>
           </div>
         </div>
         <div class="hour">
@@ -37,17 +37,21 @@
         </div>
       </div>
       <div v-if="!chunk.is_morning && chunk.size > 1" class="summary">
-        <p v-if="chunk.size > 3 && chunk.weather_rating === 1">
+        <p v-if="chunk.weather_rating === 1">
           <em>Go Play!</em>
         </p>
-        <p v-else-if="chunk.weather_rating > 1">
+        <p v-else-if="chunk.weather_rating <= 3 ">
           <em>
+            Go Play!
             {{`It's ${ratingVerb[chunk.wind_rating]} windy${comparisonLanguage(chunk.wind_rating, chunk.pop_rating)}`}}
             {{`${ratingVerb[chunk.pop_rating]} rainy.`}}
           </em>
         </p>
-        <p v-else-if="chunk.size < 4">
-          <em>Only {{chunk.size}} hours of great weather</em>
+        <p v-else-if="chunk.weather_rating > 3">
+          <em>
+            {{`It's ${ratingVerb[chunk.wind_rating]} windy${comparisonLanguage(chunk.wind_rating, chunk.pop_rating)}`}}
+            {{`${ratingVerb[chunk.pop_rating]} rainy.`}}
+          </em>
         </p>
       </div>
     </div>
