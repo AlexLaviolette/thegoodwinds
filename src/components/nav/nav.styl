@@ -17,7 +17,7 @@
     left 0
     width: 100vw
 
-.logo, p
+.logo, p, sup
   margin: 0
   color: $bright-blue
 
@@ -29,6 +29,16 @@
 
   +media('sm-height')
     font-size: 1.2em
+
+.title sup
+  position: relative
+  top: -15px
+  left: -5px
+  color: $medium-blue
+
+  +media('sm-height')
+    font-si ze: 0.5em
+    top: -9px
 
 p
   font-size: 0.6em
