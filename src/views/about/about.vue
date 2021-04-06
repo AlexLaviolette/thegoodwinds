@@ -4,8 +4,8 @@
       <h1>GoodWinds</h1>
       <p>
         GoodWinds is a disc-golf weather app to help you figure out the best times in the coming week to play disc golf.
-        Weather is chunked into blocks and ranked based on a blended analysis of <i>Temperature</i>, <i>Precipitation</i>,
-        <i>Time of Day</i> and <i>Length&nbsp;of&nbsp;Play</i>.
+        Weather is chunked into blocks and ranked based on a blended analysis of <i>Wind</i>, <i>Temperature</i>, <i>Precipitation</i>,
+        and <i>Time of Day</i>.
       </p>
       <p>
         This website is maintained by <a href="https://github.com/AlexLaviolette" target="_blank">Alex</a> and <a href="https://github.com/kravse" target="_blank">Jared</a>.
