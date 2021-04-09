@@ -54,26 +54,28 @@ p
     color: $bright-blue
     font-size: 1em
     font-weight: 600
-    padding: 10px 20px
+    padding: 8px 20px
 
     +media('xs')
       padding: 5px
 
     &:hover
       text-decoration: underline
-.btn
+a.btn
   background: $bright-blue
   border: 1px solid $light
   border-radius: 8px
-  color: $white !important
+  color: $white
+
   +media('xs')
     span
       display: none
+
   +media('sm-height')
     font-size: 0.8em
 
   &:hover
     background: $medium-blue
-    text-decoration: none !important
+    text-decoration: none
 
 dump_media_cache()
