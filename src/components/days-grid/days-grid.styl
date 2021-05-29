@@ -12,14 +12,17 @@
   position: relative
   height: 93vh
   width: 100%
-  grid-template-columns: 100%
+  grid-template-areas: "up date" "days days"
+  grid-template-columns: 3% 97%
   grid-template-rows: 8% 92%
 
-  +media('md')
+  +media('lg')
     margin-top: 7vh
+    grid-template-areas: "date" "days"
+    grid-template-columns: 100%
+    grid-template-rows: 8% 92%
 
   &.loading
-
     &:before
       content: ''
       position: absolute
@@ -35,9 +38,9 @@
       background-position: center center
 
 .date-header
+  grid-area: date
   display: flex
   flex-direction: row
-  grid-row: 1
   background: $white
   border-bottom: 2px solid $light
 
@@ -71,22 +74,71 @@
 
 .days-grid-wrap
   height: 100%
-  overflow: scroll
-  grid-row: 2
+  overflow: hidden
   background: $white
+  grid-area: days
+  display: flex
+
+  &.unlocked
+    overflow: scroll
 
   +media('lg')
     width: 250%
+    overflow: scroll
 
   +media('xs')
     width: 350%
 
+.up
+  grid-area: up
+  border: none
+  font-size: 35px
+  background: lighten($today-blue, 50%)
+  cursor: pointer
+  border-right: 2px solid rgba(0,0,0,0.11)
+  padding: 0
+
+  +media('x-lg')
+    font-size: 25px
+
+  +media('lg')
+    display: none;
+  &:hover
+    background: lighten($today-blue, 20%)
+
+.time-col
+  width: 3%
+  height: 160%
+
+  +media('lg')
+    display: none
+
+  p
+    position: relative
+    height: 4.16%
+    margin: 0
+    text-align: center
+    display: flex
+    justify-content: flex-end
+    align-items: flex-start
+    border-right: 2px solid rgba(0,0,0,0.11)
+
+    span
+      text-align: right
+      font-size: 12px
+
+      +media('x-lg')
+        font-size: 10px
+
 .days-grid
   display: flex
   height: 160%
-  width: 100%
+  width: 97%
   flex-direction: row
   justify-content: space-between
   box-shadow: -39px 8px 44px -63px rgba(0,0,0,0.83) inset
+
+  +media('lg')
+    width: 100%
 
 dump_media_cache()

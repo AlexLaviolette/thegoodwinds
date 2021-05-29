@@ -11,7 +11,7 @@
   height: 7vh
   border-bottom: 1px solid rgba(0,0,0,0.11)
 
-  +media('md')
+  +media('lg')
     position: fixed
     top: 0
     left 0
@@ -61,29 +61,35 @@ p
 
     &:hover
       text-decoration: underline
-a.btn
-  background: $bright-blue
-  border: 1px solid $light
-  border-radius: 8px
-  color: $white
 
-  .symbol
-    display: inline-block
-    margin-left: 10px
-    font-size: 20px
-    position: relative
-    top: -1px
-    transform: rotate(-45deg)
+    &.btn
+      background: $bright-blue
+      border: 1px solid $light
+      border-radius: 8px
+      color: $white
+      padding: 5px 10px
 
-  +media('xs')
-    span.desktop
-      display: none
+      .symbol
+        display: inline-block
+        margin-left: 10px
+        font-size: 20px
+        position: relative
+        top: -1px
+        transform: rotate(-45deg)
 
-  +media('sm-height')
-    font-size: 0.8em
+        +media('md')
+          font-size: 12px
+          top: -2px
 
-  &:hover
-    background: $medium-blue
-    text-decoration: none
+      +media('xs')
+        span.desktop
+          display: none
+
+      +media('sm-height')
+        font-size: 0.8em
+
+      &:hover
+        background: $medium-blue
+        text-decoration: none
 
 dump_media_cache()

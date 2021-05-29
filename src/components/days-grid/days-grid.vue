@@ -6,13 +6,20 @@
         <p class="date">{{ date | moment("D")}}</p>
       </div>
     </div>
-    <div class="days-grid-wrap" id="grid-wrap">
-      <div class="days-grid" v-if="chunked">
+    <div class="days-grid-wrap" :class="unlocked ? 'unlocked' : ''" id="grid-wrap">
+      <div class="time-col" ref="time">
+        <p v-for="(val, i) in timeVals" :key="i">
+          <span>{{val}}</span>
+        </p>
+      </div>
+      <div class="days-grid" ref="daysGrid" v-if="chunked">
         <days-column v-for="(chunks, date, i) in chunked" :date="date" :key="i">
           <day-chunk v-for="(chunk, i) in chunks" :key="i" :chunk="chunk"></day-chunk>
         </days-column>
       </div>
     </div>
+    <button class="up" @click="showNight()">🌚</button>
+
   </div>
 </template>
 
@@ -26,7 +33,13 @@ export default Vue.extend({
   data() {
     return {
       chunked: undefined,
-      isLoaded: false
+      isLoaded: false,
+      unlocked: false,
+      timeVals: Array(24).fill().map((v, i) => {
+        let val = i % 12;
+        val = val == 0 ? 12 : val;
+        return `${val} ${i < 12 ? 'AM' : 'PM'} -`
+      })
     };
   },
   components: {
@@ -44,6 +57,13 @@ export default Vue.extend({
     })
   },
   methods: {
+    showNight: function () {
+      this.unlocked = true;
+      this.$nextTick(() => {
+        this.$refs.daysGrid.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
+        this.$refs.time.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
+      });
+    },
     getLocation: async function () {
       this.isLoaded = false
       try {
