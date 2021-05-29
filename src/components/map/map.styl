@@ -7,6 +7,14 @@
 .title
   margin: 5px 0 20px
 
+p.error
+  color: $white
+  background: $err
+  padding: 5px 10px
+  font-weight: 600
+  font-size: 16px
+  text-align: left
+
 .map-holder
   height: 350px
   border: 1px solid #cdcdcd
@@ -17,6 +25,9 @@
   padding: 5px 10px
   border: 1px solid #cdcdcd
   font-size: 1em
+
+  &.error
+    border: 1px solid $err;
 
 #get-weather
   width: 100%

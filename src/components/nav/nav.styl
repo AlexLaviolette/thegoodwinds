@@ -67,8 +67,16 @@ a.btn
   border-radius: 8px
   color: $white
 
+  .symbol
+    display: inline-block
+    margin-left: 10px
+    font-size: 20px
+    position: relative
+    top: -1px
+    transform: rotate(-45deg)
+
   +media('xs')
-    span
+    span.desktop
       display: none
 
   +media('sm-height')

@@ -1,7 +1,8 @@
 <template>
   <div>
     <h2 class="title">Set Your Location</h2>
-    <input ref="pac" :model="pac" id="pac-input" class="controls" type="text" placeholder="Search Box" />
+    <p class="error" v-if="error">&#x26A0; Please enter a location to continue.</p>
+    <input :class="error ? 'error' : ''" ref="pac" :model="pac" id="pac-input" class="controls" type="text" placeholder="Search Box" />
     <div class="map-holder">
       <div ref="map" id="map"></div>
     </div>
@@ -20,6 +21,8 @@ export default {
     return {
       map: undefined,
       pac: '',
+      error: false,
+      notSet: false,
       google: null,
       markers: [],
       searchbox: null
@@ -92,24 +95,33 @@ export default {
       this.map.fitBounds(bounds);
     },
     saveLocation: function (places) {
+      this.notSet = false;
       if (places) {
+        this.error = false;
         localStorage.lat = places.geometry.location.lat();
         localStorage.lon = places.geometry.location.lng();
-        let country = places.address_components.find((x) => x.types[0] == "country")
+        let country = places.address_components.find((x) => x.types[0] === "country")
+        let city = places.address_components.find((x) => x.types[0] === "locality")
+        if (city && city.long_name) {
+          localStorage.city = city.long_name;
+        }
         if (country && country.short_name == "US") {
           localStorage.units = 'imperial';
         } else {
           localStorage.units = 'metric';
         }
       } else {
-        localStorage.lat = 43.6425662
-        localStorage.lon = -79.3892455
-        localStorage.units = 'metric'
+        this.notSet = true;
       }
     },
     setLocation: function () {
-      this.$emit('setLocation')
-      this.$router.push({name: 'home'})
+      if (this.notSet) {
+        this.error = true
+      } else {
+        this.$store.dispatch('updateCity')
+        this.$router.push({name: 'home'})
+      }
+
     }
   },
   beforeDestroy: function () {

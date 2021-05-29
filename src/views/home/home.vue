@@ -1,8 +1,8 @@
 <template>
   <div>
-    <days-grid ref="days"></days-grid>
+    <days-grid></days-grid>
     <overlay>
-      <map-component @setLocation="$refs.days.getLocation()"></map-component>
+      <map-component></map-component>
     </overlay>
   </div>
 </template>

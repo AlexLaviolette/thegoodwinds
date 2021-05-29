@@ -5,18 +5,23 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    notification: ""
+    city: localStorage.city || ""
   },
   mutations: {
-    updateNotification(state, content) {
-      state.notification = content
+    changeCity(state) {
+      console.log('hello', localStorage.city)
+      state.city = localStorage.city
     }
   },
   actions: {
-    updateNotification({ commit }, content) {
-      commit('updateNotification', content)
+    updateCity({ commit }) {
+      console.log('what')
+      commit('changeCity')
     }
   },
-  modules: {
+  getters: {
+    city: state => {
+      return state.city
+    }
   }
 })

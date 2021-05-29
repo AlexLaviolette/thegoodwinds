@@ -7,7 +7,14 @@
     </div>
     <div class="links">
       <router-link :to="{name: 'about'}">About</router-link>
-      <router-link class="btn" :to="{name: 'location'}"><span>Set </span>Location</router-link>
+      <router-link class="btn" :to="{name: 'location'}">
+        <span v-if="city">
+          {{city}}<span class="symbol">&#x27A4;</span>
+        </span>
+        <span v-else>
+          <span class="desktop">Set </span>Location
+        </span>
+      </router-link>
     </div>
   </div>
 </template>
@@ -18,12 +25,17 @@ export default {
   name: 'nav-component',
   data() {
     return {
+      city: this.$store.state.city
     };
   },
-  mounted: function () {
+  created: function () {
+    this.watcher = this.$store.watch((state, getters) => getters.city, (city) => {
+      this.city = city;
+    })
   },
-  methods: {
-  },
+  beforeDestroy: function() {
+    this.watcher();
+  }
 };
 </script>
 

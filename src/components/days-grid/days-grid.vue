@@ -39,6 +39,9 @@ export default Vue.extend({
     } else {
       this.getLocation()
     }
+    this.watcher = this.$store.watch((state, getters) => getters.city, () => {
+      this.getLocation();
+    })
   },
   methods: {
     getLocation: async function () {
@@ -57,7 +60,10 @@ export default Vue.extend({
         console.error(error);
       }
     }
-  }
+  },
+  beforeDestroy: function() {
+    this.watcher();
+  },
 });
 </script>
 
