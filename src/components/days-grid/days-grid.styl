@@ -42,7 +42,6 @@
   display: flex
   flex-direction: row
   background: $white
-  border-bottom: 2px solid $light
 
   +media('lg')
     width: 250%
@@ -92,10 +91,10 @@
 .up
   grid-area: up
   border: none
-  font-size: 35px
-  background: lighten($today-blue, 50%)
+  color: $gcgrey
+  font-size: 25px
+  background: $white
   cursor: pointer
-  border-right: 2px solid rgba(0,0,0,0.11)
   padding: 0
 
   +media('x-lg')
@@ -103,8 +102,6 @@
 
   +media('lg')
     display: none;
-  &:hover
-    background: lighten($today-blue, 20%)
 
 .time-col
   width: 3%
@@ -115,7 +112,6 @@
 
   p
     position: relative
-    top: -3px
     right: -3px
     height: 4.16%
     margin: 0
@@ -125,7 +121,7 @@
     align-items: flex-start
 
     span
-      color: #70757a
+      color: $gcgrey
       text-align: right
       font-size: 10px
       

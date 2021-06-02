@@ -18,7 +18,7 @@
         </days-column>
       </div>
     </div>
-    <button class="up" @click="showNight()">🌚</button>
+    <button class="up" @click="showMorning()">⬆</button>
 
   </div>
 </template>
@@ -57,7 +57,7 @@ export default Vue.extend({
     })
   },
   methods: {
-    showNight: function () {
+    showMorning: function () {
       this.unlocked = true;
       this.$nextTick(() => {
         this.$refs.daysGrid.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
