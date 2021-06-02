@@ -9,7 +9,7 @@
     <div class="days-grid-wrap" :class="unlocked ? 'unlocked' : ''" id="grid-wrap">
       <div class="time-col" ref="time">
         <p v-for="(val, i) in timeVals" :key="i">
-          <span>{{val}}</span>
+          <span>{{val}}</span><span class="dash">—</span>
         </p>
       </div>
       <div class="days-grid" ref="daysGrid" v-if="chunked">
@@ -38,7 +38,7 @@ export default Vue.extend({
       timeVals: Array(24).fill().map((v, i) => {
         let val = i % 12;
         val = val == 0 ? 12 : val;
-        return `${val} ${i < 12 ? 'AM' : 'PM'} -`
+        return `${val} ${i < 12 ? 'AM' : 'PM'}`
       })
     };
   },
