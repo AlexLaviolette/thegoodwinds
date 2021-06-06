@@ -9,7 +9,7 @@
       <router-link :to="{name: 'about'}">About</router-link>
       <router-link class="btn" :to="{name: 'location'}">
         <span v-if="city">
-          {{city}}<span class="symbol">&#x27A4;</span>
+          {{city}}<span class="symbol">&#10146;</span>
         </span>
         <span v-else>
           <span class="desktop">Set </span>Location
