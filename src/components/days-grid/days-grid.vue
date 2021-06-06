@@ -18,8 +18,9 @@
         </days-column>
       </div>
     </div>
-    <button class="up" :class="unlocked ? 'unlocked' : ''" @click="showMorning()">
-      <span>&#10154;</span>
+    <button aria-label="Unlock weather predictions for night time" class="up" :class="unlocked ? 'unlocked' : ''" @click="showMorning()">
+      <span class="arrow">&#10154;</span>
+      <span v-if="!unlocked" class="tooltip">Click to unlock night&#8209;time weather&nbsp;predictions.</span>
     </button>
 
   </div>

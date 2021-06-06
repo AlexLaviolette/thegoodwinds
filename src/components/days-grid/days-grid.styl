@@ -89,6 +89,7 @@
     width: 350%
 
 .up
+  position: relative
   grid-area: up
   border: none
   color: $gcgrey
@@ -96,14 +97,32 @@
   background: $white
   cursor: pointer
   padding: 0
+  &:hover
+    span.tooltip
+      display: block
 
-  span
+  span.tooltip
+    display: none
+    padding: 5px 10px
+    border: 3px solid $queen-blue
+    border-radius: 8px
+    background: $light-grey
+    text-align: left
+    color: $queen-blue
+    font-weight: 600
+    font-size: 10px
+    position: absolute
+    left: 50%
+    top: 100%
+    min-width: 160px
+
+  span.arrow
     display: block
     transform: rotate(-90deg)
     transition: transform 0.3s ease
 
   &.unlocked
-    span
+    span.arrow
       transform: rotate(90deg)
 
   +media('x-lg')
