@@ -18,7 +18,9 @@
         </days-column>
       </div>
     </div>
-    <button class="up" @click="showMorning()">⬆</button>
+    <button class="up" :class="unlocked ? 'unlocked' : ''" @click="showMorning()">
+      <span>&#10154;</span>
+    </button>
 
   </div>
 </template>
@@ -58,11 +60,22 @@ export default Vue.extend({
   },
   methods: {
     showMorning: function () {
-      this.unlocked = true;
-      this.$nextTick(() => {
-        this.$refs.daysGrid.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
-        this.$refs.time.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
-      });
+      if (this.unlocked) {
+        this.$refs.daysGrid.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' });
+        this.$refs.time.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' });
+        this.$nextTick(() => {
+          setTimeout(() => {
+            this.unlocked = false;
+          }, 500)
+        });
+      } else {
+        this.unlocked = true;
+        this.$nextTick(() => {
+          this.$refs.daysGrid.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
+          this.$refs.time.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
+        });
+      }
+
     },
     getLocation: async function () {
       this.isLoaded = false
