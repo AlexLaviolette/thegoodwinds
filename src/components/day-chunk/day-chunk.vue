@@ -37,21 +37,8 @@
         </div>
       </div>
       <div v-if="!chunk.is_morning && chunk.size > 1" class="summary">
-        <p v-if="chunk.weather_rating === 1">
-          <em>Go Play!</em>
-        </p>
-        <p v-else-if="chunk.weather_rating <= 3 ">
-          <em>
-            Go Play!
-            {{`It's ${ratingVerb[chunk.wind_rating]} windy${comparisonLanguage(chunk.wind_rating, chunk.pop_rating)}`}}
-            {{`${ratingVerb[chunk.pop_rating]} rainy.`}}
-          </em>
-        </p>
-        <p v-else-if="chunk.weather_rating > 3">
-          <em>
-            {{`It's ${ratingVerb[chunk.wind_rating]} windy${comparisonLanguage(chunk.wind_rating, chunk.pop_rating)}`}}
-            {{`${ratingVerb[chunk.pop_rating]} rainy.`}}
-          </em>
+        <p>
+          <em>{{ getSummary(chunk.wind_rating, chunk.pop_rating) }}</em>
         </p>
       </div>
     </div>
@@ -65,24 +52,34 @@ export default Vue.extend({
   data() {
     return {
       today: new Date(),
-      units: 'metric',
-      ratingVerb: {
-        '1': 'not',
-        '2': 'not that',
-        '3': 'a bit',
-        '4': 'kinda',
-        '5': 'pretty',
-        '6': 'very',
-      }
+      units: 'metric'
     };
   },
   methods: {
-    comparisonLanguage: function(wind, pop) {
-      // if (wind < 3 && pop < 3) return ' and '
-      if (wind < 3 && pop > 2) {
-        return ', but could be '
+    getSummary: function(wind, pop) {
+
+      if (wind < 2 && pop < 2) {
+        return "Go Play!"
+      } else if (wind <= 2 && pop <= 3) {
+        return "Go Play! There's only a bit of a breeze."
+      } else if (wind <= 3 && pop <= 3) {
+        return "Go Play! It's only a little windy."
+      } else if (wind <= 5 && pop <= 3) {
+        return "It's going to be a bit windy."
+      } else if (wind <= 3 && pop <= 5) {
+        return "It could be a little rainy."
+      } else if (wind <= 5 && pop <= 5) {
+        return "It could be pretty windy and rainy."
+      } else if (wind <= 3) {
+        return "It could be very rainy."
+      } else if (pop <= 3) {
+        return "It could be very windy."
+      } else if (wind <= 5) {
+        return "It could be pretty windy and very rainy."
+      } else if (pop <= 5) {
+        return "It could be very windy and a little rainy."
       } else {
-        return ' and '
+        return "It will be very windy and rainy."
       }
     }
   },
