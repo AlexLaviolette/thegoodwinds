@@ -5,12 +5,12 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    city: localStorage.city || ""
+    city: localStorage.place_name || localStorage.city || ""
   },
   mutations: {
     changeCity(state) {
       console.log('hello', localStorage.city)
-      state.city = localStorage.city
+      state.city = localStorage.place_name || localStorage.city || ""
     }
   },
   actions: {

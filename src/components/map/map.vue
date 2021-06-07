@@ -102,6 +102,9 @@ export default {
         localStorage.lon = places.geometry.location.lng();
         let country = places.address_components.find((x) => x.types[0] === "country")
         let city = places.address_components.find((x) => x.types[0] === "locality")
+        if (places.name) {
+          localStorage.place_name = places.name;
+        }
         if (city && city.long_name) {
           localStorage.city = city.long_name;
         }
