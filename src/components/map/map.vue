@@ -7,7 +7,7 @@
       <div ref="map" id="map"></div>
     </div>
     <div id="get-weather">
-      <button @click="setLocation" tag="button">Set Location</button>
+      <button @click="setLocation" tag="button" class="btn">Set Location</button>
     </div>
   </div>
 </template>
