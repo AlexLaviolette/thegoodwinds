@@ -69,6 +69,21 @@ p
       color: $white
       padding: 5px 10px
 
+      .location
+        max-width: 500px
+        text-overflow: ellipsis
+        display: inline-block
+        white-space: nowrap
+        overflow: hidden
+        top: 3px;
+        position: relative;
+
+        +media('md')
+          max-width: 200px
+
+        +media('xs')
+          max-width: 132px !important
+
       .symbol
         display: inline-block
         margin-left: 10px
