@@ -22,16 +22,23 @@
     border: 2px solid $white
 
     &.weather-rating-1
-      background-color: lighten(#43C6F6, 10%)
     &.weather-rating-2
-      background-color: lighten(#43C6F6, 50%)
     &.weather-rating-3
-      background-color: lighten(#43C6F6, 70%)
+      background-color: lighten(#cce6ff, 0%)
+      border-left: 5px solid #2eb82e
+      .wind-pop
+        // color: #2eb82e
     &.weather-rating-4
     &.weather-rating-5
-      background-color: lighten(#FDAF6F, 20%)
+      .wind-pop
+        // color: #cccc00
+      border-left: 5px solid #cccc00
+      background-color: lighten(#cce6ff, 0%)
     &.weather-rating-6
-      background-color: lighten(#F96975, 20%)
+      border-left: 5px solid #cc2900
+      background-color: lighten(#cce6ff, 0%)
+      .wind-pop
+        // color: #cc2900
 
     &.extra-special
       // background-image: url('./imgs/basket.png')
@@ -82,7 +89,7 @@
             font-size: 1.2em
 
           sub
-            font-size: 0.6em
+            font-size: 0.7em
             position: relative
             top: 0px
 
