@@ -1,9 +1,8 @@
 <template>
   <div id="nav">
     <div class="title">
-      <router-link class="logo" :to="{name: 'home'}">GoodWinds</router-link>
+      <router-link class="logo" :to="{name: 'home'}"><img src="horizontal-logo-blue.png"/></router-link>
       <sup>beta</sup>
-      <p>The Disc-Golf weather app.</p>
     </div>
     <div class="links">
       <router-link :to="{name: 'about'}">About</router-link>
