@@ -5,7 +5,7 @@
       <sup>beta</sup>
     </div>
     <div class="links">
-      <router-link :to="{name: 'about'}">About</router-link>
+      <router-link class="link" :to="{name: 'about'}">About</router-link>
       <router-link class="btn" :to="{name: 'location'}">
         <span v-if="city" class="location">
           {{city}}<span class="symbol">&#10146;</span>
