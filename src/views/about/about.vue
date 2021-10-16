@@ -1,7 +1,9 @@
 <template>
   <div id="about">
     <section>
-      <h1>GoodWinds</h1>
+      <div class="title">
+        <router-link class="logo" :to="{name: 'home'}"><img src="horizontal-logo-blue.png"/></router-link>
+      </div>
       <p>
         GoodWinds is a disc-golf weather app to help you figure out the best times in the coming week to play disc golf.
         Weather is chunked into blocks and ranked based on a blended analysis of <i>Wind</i>, <i>Temperature</i>, <i>Precipitation</i>,
