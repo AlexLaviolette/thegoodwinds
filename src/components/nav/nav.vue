@@ -2,7 +2,6 @@
   <div id="nav">
     <div class="title">
       <router-link class="logo" :to="{name: 'home'}"><img src="horizontal-logo-blue.png"/></router-link>
-      <sup>beta</sup>
     </div>
     <div class="links">
       <router-link class="link" :to="{name: 'about'}">About</router-link>
