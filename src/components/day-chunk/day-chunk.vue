@@ -11,7 +11,7 @@
         <div class="left">
           <img class="weather-icon" :src="require('./weather/' + chunk.icon + '.svg')">
           <div class="text">
-            <p v-if="units == 'imperial'" class="wind-pop">{{ Math.round(chunk.wind_kmh / 1.609) }} <span>mph</span></p>
+            <p v-if="units == 'imperial'" class="wind-pop">{{ Math.round(chunk.wind_kmh / 1.609) }} <sub>mph</sub></p>
             <p v-else class="wind-pop">{{ chunk.wind_kmh }} <sub>km/h</sub></p>
             <p v-if="units == 'imperial'" class="temp">{{ Math.round((chunk.temp * 9/5) + 32) }}<sup>°F</sup></p>
             <p v-else class="temp">{{ chunk.temp }}<sup>°C</sup></p>
