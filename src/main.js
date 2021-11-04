@@ -13,7 +13,7 @@ Vue.use(require('vue-moment'));
 Vue.use(require('vue-gtm'), {
   id: "GTM-KLG6JMN",
   defer: true,
-  enabled: process.env.NODE_ENV === 'production',
+  enabled: true, //process.env.NODE_ENV === 'production',
   debug: true,
   loadScript: false, // change this if you need to access GTM scripts in components
   vueRouter: router,
