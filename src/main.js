@@ -7,6 +7,8 @@ import store from './store';
 Vue.prototype.$axios = axios;
 Vue.config.productionTip = false;
 
+console.log(process.env.NODE_ENV)
+
 Vue.use(require('vue-moment'));
 Vue.use(require('vue-gtm'), {
   id: "GTM-KLG6JMN",
