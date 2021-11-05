@@ -10,16 +10,16 @@ Vue.config.productionTip = false;
 console.log(process.env.NODE_ENV)
 
 Vue.use(require('vue-moment'));
-Vue.use(require('vue-gtm'), {
-  id: "GTM-KLG6JMN",
-  defer: true,
-  enabled: true, //process.env.NODE_ENV === 'production',
-  debug: true,
-  loadScript: false, // change this if you need to access GTM scripts in components
-  vueRouter: router,
-  // ignoredViews: ["homepage"],
-  trackOnNextTick: false,
-});
+// Vue.use(require('vue-gtm'), {
+//   id: "GTM-KLG6JMN",
+//   // defer: true,
+//   enabled: true, //process.env.NODE_ENV === 'production',
+//   // debug: true,
+//   // loadScript: false, // change this if you need to access GTM scripts in components
+//   vueRouter: router,
+//   // ignoredViews: ["homepage"],
+//   trackOnNextTick: false,
+// });
 
 new Vue({
   router,
