@@ -37,8 +37,8 @@ export default {
     initGMaps: async function () {
       this.google = await init();
       let initialCenter = { lat: 43.6425662, lng: -79.3892455 };
-      if (localStorage.lat && localStorage.long) {
-        initialCenter = {lat: localStorage.lat, lng: localStorage.long}
+      if (localStorage.lat && localStorage.lon) {
+        initialCenter = {lat: localStorage.lat, lng: localStorage.lon}
         this.locationExists = true;
       }
       this.map = new this.google.maps.Map(this.$refs.map, {
