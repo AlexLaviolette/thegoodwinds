@@ -9,13 +9,11 @@ export default new Vuex.Store({
   },
   mutations: {
     changeCity(state) {
-      console.log('hello', localStorage.city)
       state.city = localStorage.place_name || localStorage.city || ""
     }
   },
   actions: {
     updateCity({ commit }) {
-      console.log('what')
       commit('changeCity')
     }
   },
