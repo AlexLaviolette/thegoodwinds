@@ -1,8 +1,7 @@
 <template>
   <div id="overlay" v-if="visible">
-    <div class="shade" @click="goHome()"></div>
+    <div class="shade"></div>
     <div class="content">
-      <router-link :to="{name: 'home'}" class="close" @click="visible=false" aria-label="close map overlay">×</router-link>
       <slot></slot>
     </div>
   </div>
@@ -19,11 +18,6 @@ export default Vue.extend({
   computed: {
     visible: function () {
       return this.$route.name === 'location'
-    }
-  },
-  methods: {
-    goHome: function () {
-      this.$router.push({name: 'home'})
     }
   },
   mounted() {

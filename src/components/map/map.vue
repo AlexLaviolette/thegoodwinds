@@ -2,7 +2,7 @@
   <div>
     <h2 class="title">Set Your Location</h2>
     <p class="error" v-if="error">&#x26A0; Please enter a location to continue.</p>
-    <input :class="error ? 'error' : ''" ref="pac" :model="pac" id="pac-input" class="controls" type="text" placeholder="Search Box" />
+    <input :class="error ? 'error' : ''" ref="pac" :model="pac" id="pac-input" class="controls" type="text" placeholder="Where do you want to play?" />
     <div class="map-holder">
       <div ref="map" id="map"></div>
     </div>
