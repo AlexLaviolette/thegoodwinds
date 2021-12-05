@@ -38,7 +38,7 @@ export default {
       this.google = await init();
       let initialCenter = { lat: 43.6425662, lng: -79.3892455 };
       if (localStorage.lat && localStorage.lon) {
-        initialCenter = {lat: localStorage.lat, lng: localStorage.lon}
+        initialCenter = {lat: Number(localStorage.lat), lng: Number(localStorage.lon)}
         this.locationExists = true;
       }
       this.map = new this.google.maps.Map(this.$refs.map, {
