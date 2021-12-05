@@ -6,7 +6,7 @@
     <div class="map-holder">
       <div ref="map" id="map"></div>
     </div>
-    <router-link v-if="!notSet" :to="{name: 'home'}" class="close" @click="visible=false" aria-label="close map overlay">×</router-link>
+    <router-link v-if="locationExists" :to="{name: 'home'}" class="close" @click="visible=false" aria-label="close map overlay">×</router-link>
     <div id="get-weather">
       <button @click="setLocation" tag="button" class="btn">Set Location</button>
     </div>
@@ -24,6 +24,7 @@ export default {
       pac: '',
       error: false,
       notSet: false,
+      locationExists: false,
       google: null,
       markers: [],
       searchbox: null
@@ -35,8 +36,13 @@ export default {
   methods: {
     initGMaps: async function () {
       this.google = await init();
+      let initialCenter = { lat: 43.6425662, lng: -79.3892455 };
+      if (localStorage.lat && localStorage.long) {
+        initialCenter = {lat: localStorage.lat, lng: localStorage.long}
+        this.locationExists = true;
+      }
       this.map = new this.google.maps.Map(this.$refs.map, {
-        center: { lat: 43.6425662, lng: -79.3892455 },
+        center: initialCenter,
         zoom: 13,
         mapTypeId: "roadmap",
       });
