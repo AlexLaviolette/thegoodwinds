@@ -6,6 +6,7 @@
     <div class="map-holder">
       <div ref="map" id="map"></div>
     </div>
+    <router-link v-if="!notSet" :to="{name: 'home'}" class="close" @click="visible=false" aria-label="close map overlay">×</router-link>
     <div id="get-weather">
       <button @click="setLocation" tag="button" class="btn">Set Location</button>
     </div>
