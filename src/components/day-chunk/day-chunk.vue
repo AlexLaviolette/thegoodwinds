@@ -38,7 +38,7 @@
       </div>
       <div v-if="!chunk.is_morning && chunk.size > 1" class="summary">
         <p>
-          <em>{{ getSummary(chunk.wind_rating, chunk.pop_rating) }}</em>
+          <em>{{ getSummary(chunk.temp, chunk.wind_rating, chunk.pop_rating) }}</em>
         </p>
       </div>
     </div>
@@ -56,7 +56,8 @@ export default Vue.extend({
     };
   },
   methods: {
-    getSummary: function(wind, pop) {
+    getSummary: function(temp, wind, pop) {
+      let pptype = temp <= 1 ? "snowy" : "rainy"
 
       if (wind < 2 && pop < 2) {
         return "Go Play!"
@@ -67,19 +68,19 @@ export default Vue.extend({
       } else if (wind <= 5 && pop <= 3) {
         return "It's going to be a bit windy."
       } else if (wind <= 3 && pop <= 5) {
-        return "It could be a little rainy."
+        return `It could be a little ${pptype}.`
       } else if (wind <= 5 && pop <= 5) {
-        return "It could be pretty windy and rainy."
+        return `It could be pretty windy and ${pptype}.`
       } else if (wind <= 3) {
-        return "It could be very rainy."
+        return `It could be very ${pptype}.`
       } else if (pop <= 3) {
         return "It could be very windy."
       } else if (wind <= 5) {
-        return "It could be pretty windy and very rainy."
+        return `It could be pretty windy and very ${pptype}.`
       } else if (pop <= 5) {
-        return "It could be very windy and a little rainy."
+        return `It could be very windy and a little ${pptype}.`
       } else {
-        return "It will be very windy and rainy."
+        return `It will be very windy and ${pptype}.`
       }
     }
   },
